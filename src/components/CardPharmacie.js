@@ -18,11 +18,17 @@ function PharmacieCardComponent(props) {
         <View style={styles.horaire}>
          {props.ouverture.map((dayWithHours) => {
             const [day] = Object.keys(dayWithHours)
-            console.log(day)
             const hours = dayWithHours[day]
             return <Horaire day={day} hours={hours}></Horaire>
          })}
         </View>
+        <View
+          style={{
+            borderBottomColor: 'white',
+            marginTop: 15,
+            borderBottomWidth: 1,
+          }}
+        />
       </View>
     </TouchableOpacity>
   ); 
@@ -31,7 +37,7 @@ function PharmacieCardComponent(props) {
 const styles = StyleSheet.create({
   container: {
     height: 400,
-    flex: 1
+    flex: 1,
   },
   pharmacie: {
     flex: 1,
