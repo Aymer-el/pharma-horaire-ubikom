@@ -19,7 +19,7 @@ const FlatListBasics = (props) => {
     <View style={styles.container}>
       <FlatList
         data={props.data}
-        renderItem={({item}) => <CardPharmacie style={styles.item} {...item} key={item.name}></CardPharmacie>}
+        renderItem={({item}) => <CardPharmacie style={styles.item} {...item} key={item}></CardPharmacie>}
       />
     </View>
   );

@@ -9,7 +9,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <ButtonLoad ></ButtonLoad>
+        <ButtonLoad text={'Charger les pharmacies autour de soi'} source={require('./src/assets/pharmacie-logo.png')} style={styles.image}></ButtonLoad>
       </View>
       <View style={styles.content}>
         <ListPharmacie data={data}></ListPharmacie>
@@ -23,20 +23,17 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#f7e1d2',
     alignItems: 'center',
     justifyContent: 'center',
   },
   header: {
     flex: 1,
-    backgroundColor: 'white'
   },
   content: {
-    flex: 3,
-    backgroundColor: 'green'
+    flex: 4,
   },
   footer: {
-    flex: 2
   }
 });
 
