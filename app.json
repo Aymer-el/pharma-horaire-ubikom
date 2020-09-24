@@ -1,0 +1,12 @@
+{
+  "name": "pharma-horaire-ubikom",
+  "displayName": "pharma-horaire-ubikom",
+  "expo": {
+    "name": "pharma-horaire-ubikom",
+    "slug": "pharma-horaire-ubikom",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
