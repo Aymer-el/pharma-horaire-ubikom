@@ -2,21 +2,26 @@ import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import ButtonLoad from './ButtonLoad'
+import Horaire from './Horaire';
 
 function PharmacieCardComponent(props) {
   return (
     <TouchableOpacity>
       <View style={styles.container}>
-        <View style={styles.card_top}>
-            <ButtonLoad text={'plus d\'info'} source={require('../assets/pharmacie-logo.png')} style={styles.image}></ButtonLoad>
+        <View style={styles.pharmacie}>
             <View style={styles.name}>
               <Text style={styles.title}>{props.name}</Text>
               <Text style={styles.address}>{props.address}</Text>
             </View>
+            <ButtonLoad text={'plus d\'info'} source={require('../assets/pharmacie-logo.png')} style={styles.image}></ButtonLoad>
         </View>
-        <View>
-            <Text >Horaire : De 8h à 9h</Text>
-            <Text >Horaire de garde: Lundi 12 octobre De 8h à 9h</Text>
+        <View style={styles.horaire}>
+         {props.ouverture.map((dayWithHours) => {
+            const [day] = Object.keys(dayWithHours)
+            console.log(day)
+            const hours = dayWithHours[day]
+            return <Horaire day={day} hours={hours}></Horaire>
+         })}
         </View>
       </View>
     </TouchableOpacity>
@@ -25,10 +30,10 @@ function PharmacieCardComponent(props) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    marginBottom: 25,
+    height: 400,
+    flex: 1
   },
-  card_top: {
+  pharmacie: {
     flex: 1,
     flexDirection: 'row',
     marginTop: 25
@@ -49,8 +54,9 @@ const styles = StyleSheet.create({
     marginBottom: 7,
     fontSize: 15
   },
-  card_bottom: {
-
+  horaire: {
+    flexDirection: 'row',
+    flexWrap: 'wrap'
   }
 });
 

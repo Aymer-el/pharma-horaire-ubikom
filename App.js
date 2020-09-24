@@ -14,7 +14,7 @@ export default function App() {
       <View style={styles.content}>
         <ListPharmacie data={data}></ListPharmacie>
       </View>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text style={styles.footer}>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -28,26 +28,66 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   header: {
-    flex: 1,
+    flex: 2,
   },
   content: {
-    flex: 4,
+    flex: 9,
+    width: '85%',
   },
   footer: {
+    flex: 1
   }
 });
 
 
 const data = [{
   name: 'Pharmacie de Casablanca',
-  address: 'rue de la belleville, Paris'
+  address: 'rue de la belleville, Paris',
+  ouverture: [
+    {'lundi': ['8h à 12', '13h à 19h']},
+    {'mardi': ['8h à 12', '13h à 19h']},
+    {'mercredi': ['8h à 12', '13h à 19h']},
+    {'jeudi': ['8h à 12', '13h à 19h']},
+    {'vendredi': ['11h à 12', '13h à 19h']},
+    {'samedi': ['8h à 12', '13h à 19h']},
+    {'dimanche': ['11h à 12', '13h à 19h']}
+  ],
+  ouvertureDeGarde: [
+    {'lundi': ['8h à 12', '13h à 19h']},
+    {'dimanche': ['8h à 12', '13h à 19h']}
+  ],
+},{
+  name: 'Pharmacie de Vaulnaveys-le-haut',
+  address: 'rue de l\'ours, Grenoble',
+  ouverture: [
+    {'lundi': ['8h à 12', '13h à 19h']},
+    {'mardi': ['8h à 12', '13h à 19h']},
+    {'mercredi': ['11h à 12', '14h à 19h']},
+    {'jeudi': ['8h à 12', '13h à 19h']},
+    {'vendredi': ['8h à 12', '16h à 19h']},
+    {'samedi': ['8h à 12', '18h à 19h']},
+    {'dimanche': ['8h à 12', '13h à 19h']}
+  ],
+  ouvertureDeGarde: [
+    {'lundi': ['8h à 12', '12h à 19h']},
+    {'dimanche': ['9h à 12', '13h à 19h']}
+  ],
 },
 {
   name: 'Pharmacie de Grenoble',
-  address: 'rue de la Champollion, Grenoble'
-},
-{
-  name: 'Pharmacie de Vaulnaveys-le-haut',
-  address: 'rue de l\'ours, Grenoble'
+  address: 'rue de la Champollion, Grenoble',
+  ouverture: [
+    {'lundi': ['8h à 12', '13h à 19h']},
+    {'mardi': ['8h à 12', '13h à 19h']},
+    {'mercredi': ['8h à 12', '13h à 19h']},
+    {'jeudi': ['8h à 12', '13h à 19h']},
+    {'vendredi': ['8h à 12', '13h à 19h']},
+    {'samedi': ['8h à 12', '13h à 19h']},
+    {'dimanche': ['8h à 12', '13h à 19h']}
+  ],
+  ouvertureDeGarde: [
+    {'lundi': ['8h à 12', '13h à 19h']},
+    {'dimanche': ['8h à 12', '13h à 19h']}
+  ],
 }
 ]

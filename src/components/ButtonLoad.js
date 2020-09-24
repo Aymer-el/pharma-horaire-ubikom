@@ -1,14 +1,16 @@
 import React from 'react';
-import { Text, Image,View, StyleSheet } from 'react-native';
+import { Text, Image,View, StyleSheet, TouchableOpacity } from 'react-native';
 
 function ButtonLoadComponenent(props) {
   return (
+    <TouchableOpacity>
       <View style={styles.container}>
             <Image source={require('../assets/pharmacie-logo.png')}
             style={styles.image}
             />
             <Text style={styles.name}>{props.text}</Text>
     </View>
+    </TouchableOpacity>
   ); 
 }
 
