@@ -4,7 +4,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import ButtonLoad from './ButtonLoad'
 import Horaire from './Horaire';
 
-function PharmacieCardComponent(props) {
+function CardPharmacie(props) {
   return (
     <TouchableOpacity>
       <View style={styles.container}>
@@ -16,18 +16,14 @@ function PharmacieCardComponent(props) {
             <ButtonLoad text={'plus d\'info'} source={require('../assets/pharmacie-logo.png')} style={styles.image}></ButtonLoad>
         </View>
         <View style={styles.horaire}>
-         {props.ouverture.map((dayWithHours) => {
+         {props.ouverture.map((dayWithHours, index) => {
             const [day] = Object.keys(dayWithHours)
             const hours = dayWithHours[day]
-            return <Horaire day={day} hours={hours}></Horaire>
+            return <Horaire day={day} hours={hours} key={props.nam + day + index}></Horaire>
          })}
         </View>
         <View
-          style={{
-            borderBottomColor: 'white',
-            marginTop: 15,
-            borderBottomWidth: 1,
-          }}
+          style={styles.separationLine}
         />
       </View>
     </TouchableOpacity>
@@ -44,11 +40,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 25
   },
-  image: {
-    width: '20%'
-  },
   name: {
-    width: '60%'
+    width: '67%'
   },
   title: {
     marginBottom: 10,
@@ -56,14 +49,15 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#cd7c9e'
   },
-  adresse: {
-    marginBottom: 7,
-    fontSize: 15
-  },
   horaire: {
     flexDirection: 'row',
     flexWrap: 'wrap'
+  },
+  separationLine: {
+    borderBottomColor: 'white',
+    marginTop: 15,
+    borderBottomWidth: 1,
   }
 });
 
-export default PharmacieCardComponent;
+export default CardPharmacie;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, Image,View, StyleSheet, TouchableOpacity } from 'react-native';
 
-function ButtonLoadComponenent(props) {
+function ButtonLoad(props) {
   return (
     <TouchableOpacity>
       <View style={styles.container}>
@@ -31,4 +31,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ButtonLoadComponenent;
+export default ButtonLoad;
