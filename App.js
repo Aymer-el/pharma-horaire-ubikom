@@ -1,29 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import CardPharmacie from './src/components/CardPharmacie'
-import ButtonLoad from './src/components/ButtonLoad'
-import ListPharmacie from './src/components/ListPharmacie'
+import { StyleSheet } from 'react-native';
+import HomeScreen from './src/screens/HomeScreen';
+import PharmaciesScreen from './src/screens/ListPharmaciesScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <ButtonLoad text={'Charger les pharmacies autour de soi'} source={require('./src/assets/pharmacie-logo.png')} style={styles.image}></ButtonLoad>
-      </View>
-      <View style={styles.content}>
-        <ListPharmacie data={data}></ListPharmacie>
-      </View>
-      <Text style={styles.footer}>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="ListPharmaciesScreen" component={PharmaciesScreen} />
+      </Stack.Navigator>
+  </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f7e1d2',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -32,11 +30,14 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 9,
-    width: '85%',
   },
   footer: {
     flex: 1
-  }
+  },
+  image: {
+    width: 40,
+    height: 40
+  },
 });
 
 

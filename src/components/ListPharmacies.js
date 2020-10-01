@@ -8,12 +8,12 @@ const styles = StyleSheet.create({
   }
 });
 
-const ListPharmacie = (props) => {
+const ListPharmacies = (props) => {
   return (
     <View style={styles.container}>
       <FlatList
         data={props.data}
-        renderItem={({item, index}) => {
+        renderItem={({item}) => {
           return <CardPharmacie {...item} keyExtractor={item.name}></CardPharmacie>
         }
       }
@@ -22,4 +22,5 @@ const ListPharmacie = (props) => {
   );
 }
 
-export default ListPharmacie;
+
+export default ListPharmacies;
