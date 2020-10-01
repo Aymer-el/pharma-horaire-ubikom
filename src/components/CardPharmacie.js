@@ -10,17 +10,17 @@ function CardPharmacie(props) {
       <View style={styles.container}>
         <View style={styles.pharmacie}>
             <View style={styles.name}>
-              <Text style={styles.title}>{props.name}</Text>
-              <Text style={styles.address}>{props.address}</Text>
+              <Text style={styles.title}>{props.Nom}</Text>
+              <Text style={styles.address}>Quartier: {props.Quartier}</Text>
+              <Text style={styles.address}>{props.Adresse}</Text>
+              <Text style={styles.address}>{props.Tel}</Text>
             </View>
-            <ButtonLoad text={'plus d\'info'} source={require('../assets/pharmacie-logo.png')} style={styles.image}></ButtonLoad>
+        <ButtonLoad text={'plus d\'info'} source={require('../assets/pharmacie-logo.png')} style={styles.image}></ButtonLoad>
         </View>
-        <View style={styles.horaire}>
-         {props.ouverture.map((dayWithHours, index) => {
-            const [day] = Object.keys(dayWithHours)
-            const hours = dayWithHours[day]
-            return <Horaire day={day} hours={hours} key={props.nam + day + index}></Horaire>
-         })}
+        <View style={styles.pharmacie}>
+          <Horaire garde={'Garde de Jour'} isGarde={props.GNuit}></Horaire>
+          <Horaire garde={'Garde de Nuit'} isGarde={props.GJour}></Horaire>
+          <Horaire garde={'Garde 24h/24h'} isGarde={props.G24h24h}></Horaire>
         </View>
         <View
           style={styles.separationLine}
@@ -32,7 +32,8 @@ function CardPharmacie(props) {
 
 const styles = StyleSheet.create({
   container: {
-    height: 400,
+    height: 300,
+    width: '100%',
     flex: 1,
   },
   pharmacie: {
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
     marginTop: 25
   },
   name: {
-    width: '67%'
+    width: '80%'
   },
   title: {
     marginBottom: 10,
@@ -54,10 +55,18 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap'
   },
   separationLine: {
-    borderBottomColor: 'white',
+    borderBottomColor: '#cd7c9e',
     marginTop: 15,
     borderBottomWidth: 1,
   }
 });
 
 export default CardPharmacie;
+
+/* <View style={styles.horaire}>
+         {props.ouverture.map((dayWithHours, index) => {
+            const [day] = Object.keys(dayWithHours)
+            const hours = dayWithHours[day]
+            return <Horaire day={day} hours={hours} key={props.nam + day + index}></Horaire>
+         })}
+        </View>*/

@@ -6,7 +6,7 @@ import ButtonPulse from '../components/ButtonPulse'
 function HomeScreen({navigation}) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.content} onPress={() => navigation.navigate('ListPharmaciesScreen')}>
+      <TouchableOpacity style={styles.content} onPress={() => navigation.navigate('Les pharmacies')}>
         <ButtonPulse></ButtonPulse>
         <Image style={styles.image} source={require('../assets/pharmacie-logo.png')}></Image>
       </TouchableOpacity>

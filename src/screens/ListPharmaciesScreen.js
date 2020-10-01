@@ -14,7 +14,7 @@ export default function ListPharmaciesScreen(props) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 4,
+    flex: 1,
     backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
@@ -34,55 +34,45 @@ const styles = StyleSheet.create({
   },
 });
 
-  const data = [{
-    name: 'Pharmacie de Casablanca',
-    address: 'rue de la belleville, Paris',
-    ouverture: [
-      {'lundi': ['8h à 12', '13h à 19h']},
-      {'mardi': ['8h à 12', '13h à 19h']},
-      {'mercredi': ['8h à 12', '13h à 19h']},
-      {'jeudi': ['8h à 12', '13h à 19h']},
-      {'vendredi': ['11h à 12', '13h à 19h']},
-      {'samedi': ['8h à 12', '13h à 19h']},
-      {'dimanche': ['11h à 12', '13h à 19h']}
-    ],
-    ouvertureDeGarde: [
-      {'lundi': ['8h à 12', '13h à 19h']},
-      {'dimanche': ['8h à 12', '13h à 19h']}
-    ],
-  },{
-    name: 'Pharmacie de Vaulnaveys-le-haut',
-    address: 'rue de l\'ours, Grenoble',
-    ouverture: [
-      {'lundi': ['8h à 12', '13h à 19h']},
-      {'mardi': ['8h à 12', '13h à 19h']},
-      {'mercredi': ['11h à 12', '14h à 19h']},
-      {'jeudi': ['8h à 12', '13h à 19h']},
-      {'vendredi': ['8h à 12', '16h à 19h']},
-      {'samedi': ['8h à 12', '18h à 19h']},
-      {'dimanche': ['8h à 12', '13h à 19h']}
-    ],
-    ouvertureDeGarde: [
-      {'lundi': ['8h à 12', '12h à 19h']},
-      {'dimanche': ['9h à 12', '13h à 19h']}
-    ],
-  },
-  {
-    name: 'Pharmacie de Grenoble',
-    address: 'rue de la Champollion, Grenoble',
-    ouverture: [
-      {'lundi': ['8h à 12', '13h à 19h']},
-      {'mardi': ['8h à 12', '13h à 19h']},
-      {'mercredi': ['8h à 12', '13h à 19h']},
-      {'jeudi': ['8h à 12', '13h à 19h']},
-      {'vendredi': ['8h à 12', '13h à 19h']},
-      {'samedi': ['8h à 12', '13h à 19h']},
-      {'dimanche': ['8h à 12', '13h à 19h']}
-    ],
-    ouvertureDeGarde: [
-      {'lundi': ['8h à 12', '13h à 19h']},
-      {'dimanche': ['8h à 12', '13h à 19h']}
-    ],
-  }
-  ]
+  const data = [
+    {
+      "LINKS": "https://lematin.ma/pharmacie/casablanca/ain-chock/al-kindi.html",
+      "Nom": "Pharmacie AL KINDI",
+      "Tel": " 0522.50.72.57",
+      "Adresse": "LOTISSEMENT HAFDIA, RUE 1 N° 48 - LES CRETES - AIN CHOCK (AVENUE 2 MARS - FACE LAMCALLA)",
+      "Quartier": "Aïn Chock",
+      "Ville": "Casablanca",
+      "DSemain": "2020-09-21",
+      "GNuit": true,
+      "GJour": true,
+      "G24h24h": true,
+      "Fsemaine": "2020-09-27"
+    },
+    {
+     "LINKS": "https://lematin.ma/pharmacie/casablanca/ain-chock/dakhla.html",
+     "Nom": "Pharmacie DAKHLA",
+     "Tel": " 0522.50.10.82",
+     "Adresse": "HAY EL INARA I AV. DAKHLA N°91",
+     "Quartier": "Aïn Chock",
+     "Ville": "Casablanca",
+     "DSemain": "2020-09-21",
+     "GNuit": true,
+      "GJour": false,
+      "G24h24h": false,
+     "Fsemaine": "2020-09-27"
+    },
+    {
+     "LINKS": "https://lematin.ma/pharmacie/casablanca/ain-chock/yasmina.html",
+     "Nom": "Pharmacie YASMINA",
+     "Tel": " 0522.21.95.37",
+     "Adresse": "RUE 232 N°69 HAY MOULAY ABDELLAH - (YASMINA) - AIN CHOCK",
+     "Quartier": "Aïn Chock",
+     "Ville": "Casablanca",
+     "DSemain": "2020-09-21",
+     "GNuit": false,
+      "GJour": true,
+      "G24h24h": false,
+     "Fsemaine": "2020-09-27"
+    },
+   ]
   

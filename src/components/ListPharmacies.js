@@ -4,7 +4,6 @@ import CardPharmacie from './CardPharmacie'
 
 const styles = StyleSheet.create({
   container: {
-   paddingRight: 10
   }
 });
 
