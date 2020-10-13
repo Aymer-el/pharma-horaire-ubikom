@@ -1,12 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, View, TouchableOpacity, Image, Text } from 'react-native';
 import ButtonLoad from '../components/ButtonLoad';
 import ButtonPulse from '../components/ButtonPulse'
+import Geolocation from '@react-native-community/geolocation';
  
 function HomeScreen({navigation}) {
+  const [position, setPosition] = useState({});
+  Geolocation.getCurrentPosition(
+    position => {
+      const { latitude, longitude } = position.coords
+      setPosition({latitude, longitude});
+    },
+    error => Alert.alert('Error', JSON.stringify(error)),
+    {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000},
+  );
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.content} onPress={() => navigation.navigate('Les pharmacies')}>
+      <TouchableOpacity style={styles.content} onPress={() => navigation.navigate('Les pharmacies', position)}>
         <ButtonPulse></ButtonPulse>
         <Image style={styles.image} source={require('../assets/pharmacie-logo.png')}></Image>
       </TouchableOpacity>

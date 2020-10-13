@@ -2,7 +2,6 @@ import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 
 function Horaire(props) {
-  console.log(props)
   const isGarde = props.isGarde ? <Text style={styles.isGarde}> OUI </Text>: <Text> NON </Text>
   return (
       <View style={styles.container}>

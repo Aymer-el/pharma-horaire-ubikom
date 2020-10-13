@@ -2,18 +2,19 @@ import React, {useState, useEffect} from 'react';
 import { View, StyleSheet } from 'react-native';
 import ListPharmacies from "../components/ListPharmacies";
 
-export default function ListPharmaciesScreen(props) {
+export default function ListPharmaciesScreen({route}) {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const { latitude, longitude } = route.params;
 
+  // http://192.168.1.80:3800
   useEffect(() => {
-    fetch('http://192.168.1.80:3800/pharmacies')
+    fetch(`http://ubikomhellopharma.westeurope.azurecontainer.io:3800/closest-pharmacie?lat=${latitude}&long=${longitude}`)
       .then((response) => response.json())
-      .then((json) => setData(json))
+      .then((json) => setData([json]))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
-    console.log(data)
     return (
       <View style={styles.container} >
           <ListPharmacies data={data}></ListPharmacies>
