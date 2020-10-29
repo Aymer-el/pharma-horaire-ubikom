@@ -1,56 +1,94 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import CardPharmacie from './src/components/CardPharmacie'
-import ButtonLoad from './src/components/ButtonLoad'
-import ListPharmacie from './src/components/ListPharmacie'
+import { StyleSheet } from 'react-native';
+import HomeScreen from './src/screens/HomeScreen';
+import PharmaciesScreen from './src/screens/ListPharmaciesScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <ButtonLoad ></ButtonLoad>
-      </View>
-      <View style={styles.content}>
-        <ListPharmacie data={data}></ListPharmacie>
-      </View>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+  return ( 
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Accueil" component={HomeScreen} />
+        <Stack.Screen name="Les pharmacies" component={PharmaciesScreen} />
+      </Stack.Navigator>
+  </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
   },
   header: {
-    flex: 1,
-    backgroundColor: 'white'
+    flex: 2,
   },
   content: {
-    flex: 3,
-    backgroundColor: 'green'
+    flex: 9,
   },
   footer: {
-    flex: 2
-  }
+    flex: 1
+  },
+  image: {
+    width: 40,
+    height: 40
+  },
 });
 
 
 const data = [{
   name: 'Pharmacie de Casablanca',
-  address: 'rue de la belleville, Paris'
+  address: 'rue de la belleville, Paris',
+  ouverture: [
+    {'lundi': ['8h à 12', '13h à 19h']},
+    {'mardi': ['8h à 12', '13h à 19h']},
+    {'mercredi': ['8h à 12', '13h à 19h']},
+    {'jeudi': ['8h à 12', '13h à 19h']},
+    {'vendredi': ['11h à 12', '13h à 19h']},
+    {'samedi': ['8h à 12', '13h à 19h']},
+    {'dimanche': ['11h à 12', '13h à 19h']}
+  ],
+  ouvertureDeGarde: [
+    {'lundi': ['8h à 12', '13h à 19h']},
+    {'dimanche': ['8h à 12', '13h à 19h']}
+  ],
+},{
+  name: 'Pharmacie de Vaulnaveys-le-haut',
+  address: 'rue de l\'ours, Grenoble',
+  ouverture: [
+    {'lundi': ['8h à 12', '13h à 19h']},
+    {'mardi': ['8h à 12', '13h à 19h']},
+    {'mercredi': ['11h à 12', '14h à 19h']},
+    {'jeudi': ['8h à 12', '13h à 19h']},
+    {'vendredi': ['8h à 12', '16h à 19h']},
+    {'samedi': ['8h à 12', '18h à 19h']},
+    {'dimanche': ['8h à 12', '13h à 19h']}
+  ],
+  ouvertureDeGarde: [
+    {'lundi': ['8h à 12', '12h à 19h']},
+    {'dimanche': ['9h à 12', '13h à 19h']}
+  ],
 },
 {
   name: 'Pharmacie de Grenoble',
-  address: 'rue de la Champollion, Grenoble'
-},
-{
-  name: 'Pharmacie de Vaulnaveys-le-haut',
-  address: 'rue de l\'ours, Grenoble'
+  address: 'rue de la Champollion, Grenoble',
+  ouverture: [
+    {'lundi': ['8h à 12', '13h à 19h']},
+    {'mardi': ['8h à 12', '13h à 19h']},
+    {'mercredi': ['8h à 12', '13h à 19h']},
+    {'jeudi': ['8h à 12', '13h à 19h']},
+    {'vendredi': ['8h à 12', '13h à 19h']},
+    {'samedi': ['8h à 12', '13h à 19h']},
+    {'dimanche': ['8h à 12', '13h à 19h']}
+  ],
+  ouvertureDeGarde: [
+    {'lundi': ['8h à 12', '13h à 19h']},
+    {'dimanche': ['8h à 12', '13h à 19h']}
+  ],
 }
 ]
